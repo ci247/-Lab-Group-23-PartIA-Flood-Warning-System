@@ -79,3 +79,17 @@ def stations_by_distance(stations, p):
     
     # Sorts final result in ascending order of distances from point p and returns list_of_tuples
     return sorted_by_key(list_of_tuples, 1)
+
+def stations_within_radius(stations, centre, r):
+    """Build and return a list of (station, distance) tuples based on data provided to the function.
+    The expected input is a list of MonitoringStation station objects and a coordinate p"""
+
+    # Create empty list to be returned
+    list = []
+
+    # Building list of stations within the radius using if condition and calculating distance between each station and the "centre"
+    for station in stations:
+        if haversine(station.coord,centre) <= r:
+            list += [station] 
+    # Sorts final result in ascending order of distances from point p and returns list_of_tuples
+    return list
