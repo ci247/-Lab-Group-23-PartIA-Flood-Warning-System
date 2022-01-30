@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 from floodsystem.stationdata import build_station_list
+from floodsystem.geo import rivers_by_station_number
 
 
 def run():
@@ -11,17 +12,13 @@ def run():
     # Build list of stations
     stations = build_station_list()
 
-    # Print number of stations
-    print("Number of stations: {}".format(len(stations)))
+    # Build list of 9 rivers by number of stations
+    rivers_by_station_number_list = rivers_by_station_number(stations, 9)
 
-    # Display data from 3 stations:
-    for station in stations:
-        if station.name in [
-                'Bourton Dickler', 'Surfleet Sluice', 'Gaw Bridge'
-        ]:
-            print(station)
+    # Display data
+    print(rivers_by_station_number_list,'\n')
 
 
 if __name__ == "__main__":
-    print("*** Task 1E: CUED Part IA Flood Warning System ***")
+    print("*** Task 1E: CUED Part IA Flood Warning System *** \n\n")
     run()

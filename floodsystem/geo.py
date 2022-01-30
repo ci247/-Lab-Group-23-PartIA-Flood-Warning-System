@@ -44,3 +44,24 @@ def stations_by_river(stations):
                 stations_by_river_dict[station.river] = [station.name]
 
     return stations_by_river_dict
+
+def rivers_by_station_number(stations, N=1):
+    """Build and return a list of N tuples of N rivers with the greatest number of
+    level monitoring stations based on data provided to the fucniton. The expected
+    input is a list of MonitoringStation objects and an integer N. In the case that
+    there are more rivers with the same number of stations as the N th entry, include
+    these rivers in the list.
+
+    """
+    
+    # Create empty list to be returned
+    rivers_by_station_number_list = []
+
+    stations_by_river_dict = stations_by_river(stations)
+
+    for river_name, river_stations in stations_by_river_dict.items():
+        rivers_by_station_number_list.append((river_name,len(river_stations)))
+
+    sorted_stations_dict = sorted_by_key(rivers_by_station_number_list, 1, reverse=True)
+    return [pair for pair in sorted_stations_dict if pair[1] >= sorted_stations_dict[N][1]]
+
