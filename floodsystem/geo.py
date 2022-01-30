@@ -21,7 +21,7 @@ def rivers_with_station(stations):
     # Store river name in list if it exists.
     for station in stations:
         if station.river != None:
-            rivers.append(Station.river)
+            rivers.append(station.river)
     
     # Convert to set data type as it automatically removes duplicates
     return set(rivers)
@@ -32,4 +32,13 @@ def stations_by_river(stations):
     objects.
 
     """
-    pass
+    
+    # Create empty dictionary to be returned
+    stations_by_river_dict = {}
+
+    # Iteratre through the list of stations and map station to relevant river
+    for station in stations:
+        if station.river != None:
+            stations_by_river_dict[station.river].append(station.name)
+
+    return stations_by_river_dict
