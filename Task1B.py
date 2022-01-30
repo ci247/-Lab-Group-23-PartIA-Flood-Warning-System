@@ -13,11 +13,14 @@ def run():
 
     # Build list of stations
     stations = build_station_list()
-    
+
+    # Stores information from function
     stations_by_distance_list = stations_by_distance(stations, (52.2053, 0.1218))
-    i = 0
+
+    # Creates empty list to be returned
     answer = []
 
+    # Loop adds new tuples to the list of tuples until all the information from stations_by_distance_list has been used
     for station,distance in stations_by_distance_list:
         answer += [(station.name, station.town, distance)]
     print("The 10 closest stations from Cambridge city centre ", answer[:10])

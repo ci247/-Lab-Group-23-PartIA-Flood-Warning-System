@@ -76,4 +76,6 @@ def stations_by_distance(stations, p):
     # Building list of tuples of (station name, distance from point p) using haversine function
     for station in stations:
         list_of_tuples += [(station, haversine(station.coord,p))]
+    
+    # Sorts final result in ascending order of distances from point p and returns list_of_tuples
     return sorted_by_key(list_of_tuples, 1)
