@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 from turtle import distance
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import stations_within_radius
 from floodsystem.stationdata import build_station_list
 from haversine import haversine, Unit
 
@@ -14,18 +14,19 @@ def run():
     # Build list of stations
     stations = build_station_list()
 
-    # Stores information from function
-    stations_by_distance_list = stations_by_distance(stations, (52.2053, 0.1218))
+    # Stores entries within the radius
+    stations_within_radius_list = stations_within_radius(stations, (52.2053, 0.1218), 10)
 
     # Creates empty list to be returned
     answer = []
 
-    # Loop adds new tuples to the list of tuples until all the information from stations_by_distance_list has been used
-    for station,distance in stations_by_distance_list:
-        answer += [(station.name, station.town, distance)]
-    print("The 10 closest stations from Cambridge city centre ", answer[:10])
-    print("The 10 furthest stations from Cambridge city centre ", answer[-10:])
+    # Loop adds all the entries within the radius to the list of stations (answer) and then sorts them alphabetically
+    for station in stations_within_radius_list:
+        answer += [station.name]
+    answer.sort()
+    print("The stations within a {} KM radius are {}".format(10,answer))
 
 if __name__ == "__main__":
     print("*** Task 1B: CUED Part IA Flood Warning System ***")
     run()
+
