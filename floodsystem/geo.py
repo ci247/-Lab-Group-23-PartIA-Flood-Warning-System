@@ -65,3 +65,15 @@ def rivers_by_station_number(stations, N=1):
     sorted_stations_dict = sorted_by_key(rivers_by_station_number_list, 1, reverse=True)
     return [pair for pair in sorted_stations_dict if pair[1] >= sorted_stations_dict[N][1]]
 
+def stations_by_distance(stations, p):
+    """Build and return a list of (station, distance) tuples based on data provided to the function.
+    The expected input is a list of MonitoringStation station objects and a coordinate p"""
+
+    # Create empty list to store a list of (station, distance) tuples
+    result = []
+
+    #building list of tuples of (station name, station coordinates) to input into stationt_by_distance
+    input = []
+    for station in stations:
+        input = [(station.name, haversine(station.coord,p)*1000)] + input
+    return sorted_by_key(input, 1)
