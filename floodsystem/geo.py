@@ -7,6 +7,7 @@ geographical data.
 """
 
 from .utils import sorted_by_key  # noqa
+from haversine import haversine, Unit
 
 def rivers_with_station(stations):
     """Build and return a list of all rivers with river level monitoring stations
@@ -69,11 +70,10 @@ def stations_by_distance(stations, p):
     """Build and return a list of (station, distance) tuples based on data provided to the function.
     The expected input is a list of MonitoringStation station objects and a coordinate p"""
 
-    # Create empty list to store a list of (station, distance) tuples
-    result = []
+    # Create empty list to be returned
+    listoftuples = []
 
-    #building list of tuples of (station name, station coordinates) to input into stationt_by_distance
-    input = []
+    # Building list of tuples of (station name, distance from point p) using haversine function
     for station in stations:
-        input = [(station.name, haversine(station.coord,p)*1000)] + input
-    return sorted_by_key(input, 1)
+        listoftuples += [(station.name, haversine(station.coord,p))]
+    return sorted_by_key(listoftuples, 1)
