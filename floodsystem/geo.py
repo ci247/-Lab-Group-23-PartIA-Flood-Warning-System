@@ -14,10 +14,13 @@ def rivers_with_station(stations):
     objects.
     """
 
-    rivers = set()
+    # Create empty list to store rivers with monitoring stations
+    rivers = []
     
+    # Store river name in list if it exists.
     for station in stations:
         if station.river != None:
             rivers.append(Station.river)
     
-    return rivers
+    # Conver to set data type as it automatically removes duplicates
+    return set(rivers)
