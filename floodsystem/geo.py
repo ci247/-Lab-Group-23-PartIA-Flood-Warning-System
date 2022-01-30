@@ -24,7 +24,7 @@ def rivers_with_station(stations):
             rivers.append(station.river)
     
     # Convert to set data type as it automatically removes duplicates
-    return set(rivers)
+    return list(set(rivers))
 
 def stations_by_river(stations):
     """Build and return a dictionary of rivers mapped to their level monitoring stations

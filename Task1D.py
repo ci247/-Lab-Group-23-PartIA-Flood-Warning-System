@@ -14,10 +14,11 @@ def run():
     stations = build_station_list()
 
     # Build list of rivers with stations
-    rivers = rivers_with_station(stations)
+    rivers = rivers_with_station(stations).sort()
+    print('River Dikler' in rivers)
 
     # Display number of rivers and data from first 10
-    print("{} rivers with monitoring stations. First 10 are: \n{}".format(len(rivers),rivers[:10]))
+    print("{} rivers with monitoring stations. First 10 are: \n{}\n\n".format(len(rivers),rivers[:10]))
 
     # Build list of rivers with stations
     stations_by_river_dict = stations_by_river(stations)
@@ -31,5 +32,5 @@ def run():
 
 
 if __name__ == "__main__":
-    print("*** Task 1D: CUED Part IA Flood Warning System ***")
+    print("*** Task 1D: CUED Part IA Flood Warning System *** \n\n")
     run()
