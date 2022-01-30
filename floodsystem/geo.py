@@ -18,13 +18,12 @@ def rivers_with_station(stations):
     # Create empty list to store rivers with monitoring stations
     rivers = []
     
-    # Store river name in list if it exists.
+    # Store river name in list if it does not already exist.
     for station in stations:
-        if station.river != None:
+        if (station.river != None) and (station.river not in rivers):
             rivers.append(station.river)
-    
-    # Convert to set data type as it automatically removes duplicates
-    return list(set(rivers))
+
+    return rivers
 
 def stations_by_river(stations):
     """Build and return a dictionary of rivers mapped to their level monitoring stations
@@ -39,6 +38,9 @@ def stations_by_river(stations):
     # Iteratre through the list of stations and map station to relevant river
     for station in stations:
         if station.river != None:
-            stations_by_river_dict[station.river].append(station.name)
+            try:
+                stations_by_river_dict[station.river].append(station.name)
+            except:
+                stations_by_river_dict[station.river] = [station.name]
 
     return stations_by_river_dict

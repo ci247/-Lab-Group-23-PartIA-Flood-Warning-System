@@ -14,8 +14,8 @@ def run():
     stations = build_station_list()
 
     # Build list of rivers with stations
-    rivers = rivers_with_station(stations).sort()
-    print('River Dikler' in rivers)
+    rivers = rivers_with_station(stations)
+    rivers.sort()
 
     # Display number of rivers and data from first 10
     print("{} rivers with monitoring stations. First 10 are: \n{}\n\n".format(len(rivers),rivers[:10]))
@@ -24,11 +24,11 @@ def run():
     stations_by_river_dict = stations_by_river(stations)
 
     # Display data from 3 rivers 'River Aire', 'River Cam', 'River Thames'
-    for river, river_stations in stations_by_river_dict:
-        if river in [
+    for river_name in [
                 'River Aire', 'River Cam', 'River Thames'
         ]:
-            print(river,river_stations.sort())
+        stations_by_river_dict[river_name].sort()
+        print(stations_by_river_dict[river_name],'\n')
 
 
 if __name__ == "__main__":
