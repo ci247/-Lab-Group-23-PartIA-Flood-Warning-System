@@ -81,7 +81,7 @@ def stations_by_distance(stations, p):
     return sorted_by_key(list_of_tuples, 1)
 
 def stations_within_radius(stations, centre, r):
-    """Build and return a list of (station, distance) tuples based on data provided to the function.
+    """Build and return a list of stations based on data provided to the function.
     The expected input is a list of MonitoringStation station objects and a coordinate p"""
 
     # Create empty list to be returned

@@ -40,6 +40,10 @@ class MonitoringStation:
         return d
     
     def typical_range_consistent(self):
+        """Check and return True if the station has consistent typical ranges based
+        on data provided to the fucniton.
+
+        """
         if self.typical_range == None:
             return False
         elif self.typical_range[1] < self.typical_range[0]:
@@ -49,5 +53,10 @@ class MonitoringStation:
 
 
 def inconsistent_typical_range_stations(stations):
+    """Build and return a list of all stations with inconsistent typical ranges based
+    on data provided to the fucniton. The expected input is a list of MonitoringStation
+    objects.
+
+    """
     return [station for station in stations if not station.typical_range_consistent()]
 
