@@ -33,7 +33,7 @@ def test_stations_by_river():
         assert type(key) == str
         assert type(value) == list
         for _ in value:
-        assert type(_) == str
+            assert type(_) == str
 
 def test_rivers_by_station_number():
     """Test rivers_by_station_number"""
