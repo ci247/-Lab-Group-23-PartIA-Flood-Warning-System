@@ -50,7 +50,7 @@ def test_rivers_by_station_number():
         assert len(_) == 2
         assert type(_[0]) == str
         assert type(_[1]) == int
-        assert t_[1] > 0
+        assert _[1] > 0
 
 def test_stations_by_distance():
     """Test stations_by_distance"""
