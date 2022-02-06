@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 """Unit test for the geo module"""
 
-from floodsystem.geo import *
+from floodsystem.geo import rivers_with_station, stations_by_river, rivers_by_station_number, stations_by_distance, stations_within_radius
 
 
 def test_rivers_with_station():
