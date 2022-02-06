@@ -47,7 +47,7 @@ def test_rivers_by_station_number():
     assert len(rivers) >= 9
     for _ in rivers:
         assert type(_) == tuple
-        assert len(2) == 2
+        assert len(_) == 2
         assert type(_[0]) == str
         assert type(_[1]) == int
         assert t_[1] > 0
@@ -64,7 +64,7 @@ def test_stations_by_distance():
     assert len(stations_by_distance_list) == len(stations)
     for _ in stations_by_distance_list:
         assert type(_) == tuple
-        assert len(2) == 2
+        assert len(_) == 2
         assert type(_[1]) == float
         assert _[1] > 0
 
