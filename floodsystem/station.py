@@ -38,7 +38,8 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
-    
+
+
     def typical_range_consistent(self):
         """Check and return True if the station has consistent typical ranges based
         on data provided to the fucniton.
@@ -51,10 +52,14 @@ class MonitoringStation:
         else:
             return True
 
-    def relative_water_levels(self):
 
-        d = (((self.latest_level - self.typical_range[0]) / (self.typical_range[1] - self.typical_range[0])))
-        return d
+    def relative_water_levels(self):
+        try:   
+            a = self.latest_level - (self.typical_range)[0] / (self.typical_range)[1] - (self.typical_range)[0]
+        except:
+            a = None
+        return a
+
 
 def inconsistent_typical_range_stations(stations):
     """Build and return a list of all stations with inconsistent typical ranges based
