@@ -58,6 +58,8 @@ class MonitoringStation:
             a = self.latest_level - (self.typical_range)[0] / (self.typical_range)[1] - (self.typical_range)[0]
         except:
             a = None
+        if not self.typical_range_consistent():
+            a = None
         return a
 
 

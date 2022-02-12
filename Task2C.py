@@ -20,18 +20,15 @@ def run():
     level = []
     for i in range(N):
        level += [stations_level_list[i][1]]
-    print(level)
-
 
     #store list of station objects: stations_highest_rel_level(stations, 10)
     stations_highest_list = stations_highest_rel_level(stations, N)
     highest_names = []
     for station in stations_highest_list:
         highest_names += [station.name]
-    print(highest_names)
 
-    for i in range(N):
-        print(list(zip(highest_names, level))[i][0], list(zip(highest_names, level))[i][1])
+    for station_name, station_level in zip(highest_names, level):
+        print(station_name, station_level)
 
 if __name__ == "__main__":
     print("*** Task 2A: CUED Part IA Flood Warning System ***")
