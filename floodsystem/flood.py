@@ -9,7 +9,7 @@ def stations_level_over_threshold(stations, tol):
     consistent_stations = [station for station in stations if station.typical_range_consistent()]
     for station in consistent_stations:
         try:
-            if station.relative_water_levels() > tol:
+            if station.relative_water_levels() > tol and station.relative_water_levels() < 10:
                 ans += [(station, station.relative_water_levels())]
             else:
                 pass

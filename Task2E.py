@@ -21,7 +21,7 @@ def run():
     # Number of stations wanted
     N = 5
 
-    # Store list of station objects to plot: stations_highest_rel_level(stations, 10)
+    # Store list of station objects to plot: stations_highest_rel_level(stations, N)
     stations_highest_list = stations_highest_rel_level(stations, N)
 
     for station in stations_highest_list:
