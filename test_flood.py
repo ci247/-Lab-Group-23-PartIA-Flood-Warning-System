@@ -14,7 +14,7 @@ def test_stations_level_over_threshold():
     for _ in slot:
         assert type(_) == tuple
         assert len(_) == 2
-        assert type(_[1]) == int
+        assert type(_[1]) == float
         assert _[1] >= 0.3
 
 def test_stations_highest_rel_level():
