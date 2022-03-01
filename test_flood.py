@@ -1,3 +1,8 @@
+# Copyright (C) 2018 Garth N. Wells
+#
+# SPDX-License-Identifier: MIT
+"""Unit test for the flood module"""
+
 from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.station import MonitoringStation
