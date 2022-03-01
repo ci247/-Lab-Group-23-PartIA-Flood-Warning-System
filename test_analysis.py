@@ -22,7 +22,7 @@ def test_polyfit():
     stations_highest_list = stations_highest_rel_level(stations, 10)
 
     dt = 2
-    dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
+    dates, levels = fetch_measure_levels(stations_highest_list[0].measure_id, dt=datetime.timedelta(days=dt))
     
     # Calculate if water levels are rising or falling
     output = polyfit(dates, levels, 4)
