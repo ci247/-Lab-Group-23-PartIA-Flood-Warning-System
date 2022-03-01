@@ -8,7 +8,6 @@ plotting and visualizing data.
 
 import matplotlib.pyplot as plt
 from matplotlib.dates import date2num
-from datetime import datetime, timedelta
 from .analysis import polyfit
 
 def plot_water_levels(station, dates, levels):
